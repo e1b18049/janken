@@ -22,4 +22,26 @@ public class Lec02Controller {
     model.addAttribute("Name", name);
     return "lec02.html";
   }
+
+    /**
+   * @param hand
+   * @param model
+   * @return
+   */
+
+  @GetMapping("/lec02janken/{hand}")
+  public String lec02janken(@PathVariable String hand, ModelMap model) {
+    String judge = "";
+    if(hand.equals("Gu")){
+      judge += "Draw";
+    }else if(hand.equals("Choki")){
+      judge += "You Lose";
+    }else if(hand.equals("Pa")){
+      judge += "You Win";
+    }
+    model.addAttribute("Hand", hand);
+    model.addAttribute("Judge", judge);
+
+    return "lec02.html";
+  }
 }
